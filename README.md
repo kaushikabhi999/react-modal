@@ -1,2 +1,2 @@
 # react-modal
-Accessible modal dialog component for React.JS
+Accessible modal dialog component for React.JS.
