@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import "./modal.css";
+import "./Modal.css";
 import CloseButton from "./close.svg";
 
-export default function modal(props) {
+export default function Modal(props) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     document.body.style.height = "100%";
