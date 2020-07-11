@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import MainPageComponent from './pages/index'
+import { Routing } from './components/Shared/Routing';
 function App() {
   return (
     <div className="App">
-      <MainPageComponent />
+      <Routing />
     </div>
   );
 }
