@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./Modal.css";
+import "./modal.css";
 import CloseButton from "./close.svg";
 
 export default function modal(props) {

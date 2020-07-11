@@ -1,0 +1,42 @@
+.modal-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    background-color: #888;
+    background-size: cover;
+    border-radius: 4px;
+    min-height: 400px;
+    min-width: 400px;
+    z-index: 9998;
+}
+
+@media only screen and (max-device-width: 767px) and (min-device-width: 300px)
+{
+    .modal-wrapper{
+        width: 97%;
+        min-width: 97%;    
+    }  
+}
+   
+.modal-wrapper .close-button-wrapper{
+    text-align: right;
+    padding: 6px 6px 6px 0px;
+    
+}
+.modal-wrapper .close-button-wrapper .close-button {
+    
+    border: 0;
+    background: 0;
+    outline: none;
+
+cursor: pointer;
+}
+.modal-wrapper .close-button-wrapper .close-button img{
+    filter: contrast(60%);
+}
+.modal-wrapper .close-button-wrapper .close-button img:hover{
+    filter: contrast(100%);
+}
