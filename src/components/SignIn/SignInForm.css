@@ -1,0 +1,13 @@
+
+.sign-in-btn {
+    background-color: #8ebf42;
+    color: white;
+    padding: 14px 0;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.sign-in-btn:hover{
+    opacity: 0.8;
+}
