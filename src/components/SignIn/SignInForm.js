@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { navigate } from "@reach/router";
 import './SignInForm.css';
 
 export default function SignInForm(props) {
   return (
-    <form>
+    <form onSubmit={e => { e.preventDefault(); navigate(`/dashboard`); }}>
       <div className="form-wrapper">
         <label>Username:</label>
         <input name="username" type="text" />
         <label>Password:</label>
         <input name="password" type="password" />
-      <Link className="btn sign-in-btn" to="/dashboard">Sign In</Link>
+        <button className="btn sign-in-btn" type="submit">Sign In</button>
       </div>
     </form>
   );

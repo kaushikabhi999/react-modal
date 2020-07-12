@@ -23,5 +23,5 @@ input[type=text], input[type=email], input[type=number], input[type=button], inp
 }
 .form-wrapper {
     text-align: left;
-    padding: 24px 50px 12px;
+    padding: 24px 50px;
 }

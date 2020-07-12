@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { navigate } from "@reach/router";
 import './SignUpForm.css';
 
 export default function SignUpForm() {
   return (
     <>
-      <form>
+      <form onSubmit={e => { e.preventDefault(); navigate(`/dashboard`); }}>
         <div className="form-wrapper">
           <label>First name:</label>
           <input name="first_name" type="text" />
@@ -19,7 +19,7 @@ export default function SignUpForm() {
           <input name="username" type="text" />
           <label>Password:</label>
           <input name="password" type="password" />
-          <Link className="btn sign-up-btn" to="/dashboard">Sign Up</Link>
+          <button className="btn sign-up-btn" type="submit">Sign Up</button>
         </div>
       </form>
     </>

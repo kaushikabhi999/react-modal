@@ -20,6 +20,7 @@ export default function Home() {
         closeButton
         isOpen={isSignIn}
         requestCloseModal={requestSignInCloseModal}
+        overlay={true}
       >
         <SignInForm />
       </Modal>
@@ -27,6 +28,7 @@ export default function Home() {
         closeButton
         isOpen={isSignUp}
         requestCloseModal={requestSignUpCloseModal}
+        overlay={true}
       >
         <SignUpForm />
       </Modal>
