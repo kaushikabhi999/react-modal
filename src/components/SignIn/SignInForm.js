@@ -10,7 +10,7 @@ export default function SignInForm(props) {
         <input name="username" type="text" />
         <label>Password:</label>
         <input name="password" type="password" />
-        <Link className="btn sign-in-btn" to="/dashboard">Sign In</Link>
+      <Link className="btn sign-in-btn" to="/dashboard">Sign In</Link>
       </div>
     </form>
   );

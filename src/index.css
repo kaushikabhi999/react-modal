@@ -79,20 +79,5 @@ code {
     text-align: center;
 }
 
-/* Signin Form */
-form {
-    border: 5px solid #f1f1f1;
-}
-input[type=text], input[type=email], input[type=number], input[type=button], input[type=password] {
-    width: 100%;
-    padding: 16px 8px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-.form-wrapper {
-    text-align: left;
-    margin: 24px 50px 12px;
-}
+
+
