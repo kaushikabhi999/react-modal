@@ -21,9 +21,8 @@ export default function Dashboard(props) {
         closeButton
         isOpen={isLogout}
         requestCloseModal={requestLogoutCloseModal}
-        overlay={true}
       >
-        <LogOut />
+        <LogOut requestLogoutCloseModal={requestLogoutCloseModal}/>
       </Modal>
     </>
   );

@@ -20,7 +20,6 @@ export default function Home() {
         closeButton
         isOpen={isSignIn}
         requestCloseModal={requestSignInCloseModal}
-        overlay={true}
       >
         <SignInForm />
       </Modal>
@@ -28,11 +27,9 @@ export default function Home() {
         closeButton
         isOpen={isSignUp}
         requestCloseModal={requestSignUpCloseModal}
-        overlay={true}
       >
         <SignUpForm />
       </Modal>
-
 
       <div className="heading">
         <h3>Welcome to Custom React Modal Utility</h3>
