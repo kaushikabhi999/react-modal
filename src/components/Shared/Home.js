@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "../../Modal/Modal";
 import SignInForm from "../SignIn/SignInForm";
 import SignUpForm from "../SignUp/SignUpForm";
-
+import { useLocation } from '@reach/router';
 export default function Home() {
   const [isSignIn, setSignIn] = useState(false);
   const [isSignUp, setSignUp] = useState(false);
+
+  let location = useLocation();
+  useEffect(() => {
+    if (location.pathname === '/login') {
+      setSignIn(true);
+    }
+    if (location.pathname === '/signup') {
+      setSignUp(true);
+    }
+  }, [location.pathname])
 
   function requestSignInCloseModal() {
     setSignIn(!isSignIn);
