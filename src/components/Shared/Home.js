@@ -16,21 +16,19 @@ export default function Home() {
 
   return (
     <>
-      <Modal
-        closeButton
-        isOpen={isSignIn}
-        requestCloseModal={requestSignInCloseModal}
-      >
-        <SignInForm />
-      </Modal>
-      <Modal
-        closeButton
-        isOpen={isSignUp}
-        requestCloseModal={requestSignUpCloseModal}
-      >
-        <SignUpForm />
-      </Modal>
+      {isSignIn && (
+        <Modal
+          requestCloseModal={requestSignInCloseModal}
+        >
+          <SignInForm />
+        </Modal>
+      )}
 
+      {isSignUp && (
+        <Modal requestCloseModal={requestSignUpCloseModal}>
+          <SignUpForm />
+        </Modal>
+      )}
       <div className="heading">
         <h3>Welcome to Custom React Modal Utility</h3>
       </div>

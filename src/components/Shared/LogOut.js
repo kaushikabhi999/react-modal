@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 
 export default function LogOut(props) {
   function logOut() {
-    navigate(`/`);
+    navigate(`/login`);
   }
   return (
     <div style={{ textAlign: 'center', margin: '20px 50px' }}>

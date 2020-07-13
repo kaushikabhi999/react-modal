@@ -1,52 +1,54 @@
-.modal-wrapper-parent{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 9998;
-    top: 0;
-    position: fixed;
-    background: rgba(0,0,0,.5);
-}
-.modal-wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    overflow: hidden;
-    background-color: #ffffff;
-    border: 1px solid black;
-    background-size: cover;
-    border-radius: 4px;
-    /* min-height: 400px; */
-    min-width: 400px;
-    z-index: 9999;
+.modal-wrapper-parent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  top: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (max-device-width: 767px) and (min-device-width: 300px)
-{
-    .modal-wrapper{
-        width: 97%;
-        min-width: 97%;    
-    }  
+.modal-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid black;
+  background-size: cover;
+  border-radius: 4px;
+  /* min-height: 400px; */
+  min-width: 400px;
+  z-index: 9999;
 }
-   
-.modal-wrapper .close-button-wrapper{
-    text-align: right;
-    padding: 6px 6px 6px 0px;
-    
+/* dialog[open]:focus-within{
+    background: darkmagenta;
+} */
+@media only screen and (max-device-width: 767px) and (min-device-width: 300px) {
+  .modal-wrapper {
+    width: 97%;
+    min-width: 97%;
+  }
+}
+
+.modal-wrapper .close-button-wrapper {
+  text-align: right;
+  padding: 6px 6px 6px 0px;
 }
 .modal-wrapper .close-button-wrapper .close-button {
-    
-    border: 0;
-    background: 0;
-    outline: none;
-
-cursor: pointer;
+  border: 0;
+  background: 0;
+  outline: none;
+  cursor: pointer;
 }
-.modal-wrapper .close-button-wrapper .close-button img{
-    filter: contrast(60%);
+.modal-wrapper .close-button-wrapper .close-button:focus {
+  border: 1px solid #3bb360;
 }
-.modal-wrapper .close-button-wrapper .close-button img:hover{
-    filter: contrast(100%);
+.modal-wrapper .close-button-wrapper .close-button img {
+  filter: contrast(60%);
+}
+.modal-wrapper .close-button-wrapper .close-button img:hover {
+  filter: contrast(100%);
 }
