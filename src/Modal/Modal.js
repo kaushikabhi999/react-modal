@@ -33,7 +33,7 @@ export default function Modal(props) {
   }, []);
 
   useEffect(() => {
-    console.log(previousFocused, KeyPressedUp[0]);
+   // console.log(previousFocused, KeyPressedUp[0]);
     if (KeyPressedUp[0] === 27) {
       requestCloseModal();
     } else if (KeyPressedUp[0] === "Shift+TAB") {
@@ -100,7 +100,6 @@ export default function Modal(props) {
 function KeyListenerUp() {
   const [keyPressed, setKeyPressed] = useState([]);
   function keyListener(e) {
-    console.log(e.shiftKey, e.keyCode)
     if (e.shiftKey && e.keyCode === 9) {
       setKeyPressed(["Shift+TAB"]);
     } else if (!e.shiftKey) {
@@ -108,9 +107,9 @@ function KeyListenerUp() {
     }
   }
   useEffect(() => {
-    document.addEventListener("keyup", keyListener);
+    document.addEventListener("keydown", keyListener);
     return () => {
-      document.removeEventListener("keyup", keyListener);
+      document.removeEventListener("keydown", keyListener);
     };
   });
 
