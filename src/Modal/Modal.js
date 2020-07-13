@@ -60,7 +60,8 @@ export default function Modal(props) {
     }
   }, [KeyPressedDown]);
 
-  const { width, height, requestCloseModal } = props;
+  const { width, height, requestCloseModal,closeButtonSVG } = props;
+  
   return (
     <dialog className="modal-wrapper-parent" open>
       <dialog
@@ -78,7 +79,8 @@ export default function Modal(props) {
             className="close-button"
             onFocus={() => setIsCloseFocused(true)}
           >
-            <img alt="close-button" src={CloseButton} />
+            
+            {closeButtonSVG ? closeButtonSVG :<img alt="close-button" src={CloseButton} /> }
           </button>
         </div>
         <div ref={inputElements}>{props.children}</div>
