@@ -17,13 +17,16 @@ export default function Dashboard(props) {
       <nav className="nav">
         <button onClick={() => setLogout(!isLogout)} className="btn btn-outline-danger">Log Out</button>
       </nav>
-      <Modal
-        closeButton
-        isOpen={isLogout}
-        requestCloseModal={requestLogoutCloseModal}
-      >
-        <LogOut requestLogoutCloseModal={requestLogoutCloseModal}/>
-      </Modal>
+      {isLogout && (
+        <Modal
+          closeButton
+          isOpen={isLogout}
+          requestCloseModal={requestLogoutCloseModal}
+          style={{ left: '25%' }}
+        >
+          <LogOut requestLogoutCloseModal={requestLogoutCloseModal} />
+        </Modal>
+      )}
     </>
   );
 }

@@ -8,8 +8,9 @@ export default function Modal(props) {
   const closeButtonRef = createRef();
   const createFirstRef = createRef();
 
-  const [isCloseFocused, setIsCloseFocused] = useState(null);
-  const KeyPressedDown = KeyListenerDown();
+  const [isCloseFocused, setIsCloseFocused] = useState(false);
+  const [previousFocused, setPreviousFocused] = useState('');
+  const KeyPressedUp = KeyListenerUp();
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -32,11 +33,10 @@ export default function Modal(props) {
   }, []);
 
   useEffect(() => {
-    if (KeyPressedDown[0] === 27) {
-      //for escape//
+    console.log(previousFocused, KeyPressedUp[0]);
+    if (KeyPressedUp[0] === 27) {
       requestCloseModal();
-    } else if (KeyPressedDown[0] === "Shift+TAB") {
-      // SHIFT + TAB //
+    } else if (KeyPressedUp[0] === "Shift+TAB") {
       const focusableModalElements = inputElements.current.querySelectorAll(
         "a[href], button, textarea, input, select"
       );
@@ -45,61 +45,73 @@ export default function Modal(props) {
       }
       createFirstRef.current = focusableModalElements[0];
       if (
-        document.activeElement === ReactDOM.findDOMNode(createFirstRef.current)
+        previousFocused === ReactDOM.findDOMNode(createFirstRef.current)
       ) {
-        closeButtonRef.current.focus();
-        setIsCloseFocused(true);
+        console.log('previousFocused');
       }
-    } else if (KeyPressedDown[0] === 9 && isCloseFocused) {
-      // for TAB //
+      setPreviousFocused(document.activeElement);
+    } else if (KeyPressedUp[0] === 9) {
       const focusableModalElements = inputElements.current.querySelectorAll(
         "a[href], button, textarea, input, select"
       );
-      focusableModalElements[0].focus();
-      setIsCloseFocused(false);
+      if (isCloseFocused && document.activeElement !== ReactDOM.findDOMNode(closeButtonRef.current)) {
+        focusableModalElements[0].focus();
+        setIsCloseFocused(false);
+      }
+      if (
+        document.activeElement === ReactDOM.findDOMNode(closeButtonRef.current)
+      ) {
+        setIsCloseFocused(true);
+      }
+      setPreviousFocused(document.activeElement);
+    } else {
+      setPreviousFocused(document.activeElement);
     }
-  }, [KeyPressedDown]);
+  }, [KeyPressedUp]);
 
-  const { width, height, requestCloseModal,closeButtonSVG } = props;
-  
+  const { id, style, requestCloseModal, closeButtonSVG } = props;
   return (
-    <dialog className="modal-wrapper-parent" open>
+    <>
+      <dialog className="modal-wrapper-parent" onClick={() => requestCloseModal()} open>
+      </dialog>
       <dialog
+        id={id}
         open
         className="modal-wrapper"
-        style={{
-          minWidth: width ? width : "",
-          minHeight: height ? height : "",
-        }}
+        style={style}
       >
         <div className="close-button-wrapper">
           <button
             ref={closeButtonRef}
             onClick={() => requestCloseModal()}
             className="close-button"
+            aria-label="close-button"
             onFocus={() => setIsCloseFocused(true)}
           >
-            
-            {closeButtonSVG ? closeButtonSVG :<img alt="close-button" src={CloseButton} /> }
+            {closeButtonSVG ? closeButtonSVG : <img alt="close-button" src={CloseButton} />}
           </button>
         </div>
         <div ref={inputElements}>{props.children}</div>
       </dialog>
-    </dialog>
+    </>
   );
 }
 
-function KeyListenerDown() {
+function KeyListenerUp() {
   const [keyPressed, setKeyPressed] = useState([]);
   function keyListener(e) {
+    console.log(e.shiftKey, e.keyCode)
     if (e.shiftKey && e.keyCode === 9) {
       setKeyPressed(["Shift+TAB"]);
+    } else if (!e.shiftKey) {
+      setKeyPressed([e.keyCode]);
     }
-    setKeyPressed([e.keyCode]);
   }
   useEffect(() => {
-    document.addEventListener("keydown", keyListener);
-    return () => document.removeEventListener("keydown", keyListener);
+    document.addEventListener("keyup", keyListener);
+    return () => {
+      document.removeEventListener("keyup", keyListener);
+    };
   });
 
   return keyPressed;
