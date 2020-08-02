@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, createRef } from "react";
 import "./Modal.css";
 import CloseButton from "./close.svg";
@@ -33,7 +34,6 @@ export default function Modal(props) {
   }, []);
 
   useEffect(() => {
-   // console.log(previousFocused, KeyPressedUp[0]);
     if (KeyPressedUp[0] === 27) {
       requestCloseModal();
     } else if (KeyPressedUp[0] === "Shift+TAB") {
