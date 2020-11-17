@@ -52,3 +52,6 @@
 .modal-wrapper .close-button-wrapper .close-button img:hover {
   filter: contrast(100%);
 }
+.cursor-pointer{
+  cursor: pointer;
+}
